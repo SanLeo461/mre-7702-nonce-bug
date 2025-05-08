@@ -17,11 +17,7 @@ contract CounterScript is Script {
 
         Counter counter = new Counter();
 
-        vm.stopBroadcast();
-
         Vm.SignedDelegation memory signedDelegation = vm.signAndAttachDelegation(address(counter), PRIVATE_KEY);
-
-        vm.startBroadcast(PRIVATE_KEY);
         
         Counter(SENDER).increment();
 
